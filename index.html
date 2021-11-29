@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siyana Atanasova - Drag & Drop</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form action="" class="form-add row border my-2 p-4 g-0">
+            <div class="col-12 mb-3">
+                <input id="form-title" type="text" class="form-control" placeholder="Title" required>
+            </div>
+
+            <div class="col-12 mb-3">
+                <input id="form-url" type="Url" class="form-control" placeholder="Url" required>
+            </div>
+
+            <div class="col-12">
+                <button id="btn-add" type="submit" class="btn btn-success">Add</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="container drag-n-drop-container">
+        <div class="row my-2">
+            <div class="col-6">
+                <div class="items-container border p-2">
+                    <div data-template="draggable" class="d-none bg-white draggable droppable border border-dark m-3 p-2">
+                        <input class="draggable-title d-block mb-3" disabled type="text" value="title">
+                        <input class="draggable-url d-block mb-3" disabled type="url" value="url">
+                        <button class="btn btn-danger btn-remove">remove</button>
+                        <button class="btn btn-warning btn-edit">edit</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-6">
+                <div class="nav-items-container droppable sortable border p-2">
+                    <!-- <div class=" draggable droppable border border-dark m-3 p-2">
+                        <input class="draggable-title d-block mb-3" disabled type="text" value="title 1">
+                        <input class="draggable-url d-block mb-3" disabled type="url" value="url">
+                        <button class="btn btn-danger btn-remove">remove</button>
+                        <button class="btn btn-warning btn-edit">edit</button>
+
+                        <div class=" draggable droppable border border-dark m-3 p-2">
+                            <input class="draggable-title d-block mb-3" disabled type="text" value="title 2">
+                            <input class="draggable-url d-block mb-3" disabled type="url" value="url">
+                            <button class="btn btn-danger btn-remove">remove</button>
+                            <button class="btn btn-warning btn-edit">edit</button>
+                        </div>
+                    </div>
+
+                    <div class=" draggable droppable border border-dark m-3 p-2">
+                        <input class="draggable-title d-block mb-3" disabled type="text" value="title 3">
+                        <input class="draggable-url d-block mb-3" disabled type="url" value="url">
+                        <button class="btn btn-danger btn-remove">remove</button>
+                        <button class="btn btn-warning btn-edit">edit</button>
+                    </div> -->
+                    <div class="nav-items-container droppable sortable border p-2 ui-droppable">
+                        <!-- <div class=" draggable droppable border border-dark m-3 p-2">
+                            <input class="draggable-title d-block mb-3" disabled type="text" value="title 1">
+                            <input class="draggable-url d-block mb-3" disabled type="url" value="url">
+                            <button class="btn btn-danger btn-remove">remove</button>
+                            <button class="btn btn-warning btn-edit">edit</button>
+    
+                            <div class=" draggable droppable border border-dark m-3 p-2">
+                                <input class="draggable-title d-block mb-3" disabled type="text" value="title 2">
+                                <input class="draggable-url d-block mb-3" disabled type="url" value="url">
+                                <button class="btn btn-danger btn-remove">remove</button>
+                                <button class="btn btn-warning btn-edit">edit</button>
+                            </div>
+                            </div>
+
+                            <div class=" draggable droppable border border-dark m-3 p-2">
+                                <input class="draggable-title d-block mb-3" disabled type="text" value="title 3">
+                                <input class="draggable-url d-block mb-3" disabled type="url" value="url">
+                                <button class="btn btn-danger btn-remove">remove</button>
+                                <button class="btn btn-warning btn-edit">edit</button>
+                            </div> -->
+                            <div class="bg-white draggable droppable border border-dark m-3 p-2 ui-draggable ui-draggable-handle ui-droppable first-level"
+                                style="position: relative; opacity: 1; z-index: auto; left: 0px; top: 0px;">
+                                <input class="draggable-title d-block mb-3" disabled="" type="text" value="title">
+                                <input class="draggable-url d-block mb-3" disabled="" type="url" value="url">
+                                <button class="btn btn-danger btn-remove">remove</button>
+                                <button class="btn btn-warning btn-edit">edit</button>
+                            </div>
+                            <div class="bg-white draggable droppable border border-dark m-3 p-2 ui-draggable ui-draggable-handle ui-droppable dropdown"
+                                style="position: relative; opacity: 1; z-index: auto; left: 0px; top: 0px;">
+                                <input class="draggable-title d-block mb-3" disabled="" type="text" value="title">
+                                <input class="draggable-url d-block mb-3" disabled="" type="url" value="url">
+                                <button class="btn btn-danger btn-remove">remove</button>
+                                <button class="btn btn-warning btn-edit">edit</button>
+                                <div class="bg-white draggable droppable border border-dark m-3 p-2 ui-draggable ui-draggable-handle ui-droppable second-level"
+                                    style="position: relative; opacity: 1; z-index: auto; left: 0px; top: 0px;">
+                                    <input class="draggable-title d-block mb-3" disabled="" type="text" value="title">
+                                    <input class="draggable-url d-block mb-3" disabled="" type="url" value="url">
+                                    <button class="btn btn-danger btn-remove">remove</button>
+                                    <button class="btn btn-warning btn-edit">edit</button>
+                                </div>
+                                <div class="bg-white draggable droppable border border-dark m-3 p-2 ui-draggable ui-draggable-handle ui-droppable second-level submenu"
+                                    style="position: relative; opacity: 1; z-index: auto; left: 0px; top: 0px;">
+                                    <input class="draggable-title d-block mb-3" disabled="" type="text" value="title">
+                                    <input class="draggable-url d-block mb-3" disabled="" type="url" value="url">
+                                    <button class="btn btn-danger btn-remove">remove</button>
+                                    <button class="btn btn-warning btn-edit">edit</button>
+                                    <div class="bg-white draggable droppable border border-dark m-3 p-2 ui-draggable ui-draggable-handle ui-droppable"
+                                        style="position: relative; opacity: 1; z-index: auto; left: 0px; top: 0px;">
+                                        <input class="draggable-title d-block mb-3" disabled="" type="text"
+                                            value="title">
+                                        <input class="draggable-url d-block mb-3" disabled="" type="url" value="url">
+                                        <button class="btn btn-danger btn-remove">remove</button>
+                                        <button class="btn btn-warning btn-edit">edit</button>
+                                    </div>
+                                    <div class="bg-white draggable droppable border border-dark m-3 p-2 ui-draggable ui-draggable-handle ui-droppable"
+                                        style="position: relative; opacity: 1; z-index: auto; left: 0px; top: 0px;">
+                                        <input class="draggable-title d-block mb-3" disabled="" type="text"
+                                            value="title">
+                                        <input class="draggable-url d-block mb-3" disabled="" type="url" value="url">
+                                        <button class="btn btn-danger btn-remove">remove</button>
+                                        <button class="btn btn-warning btn-edit">edit</button>
+                                    </div>
+                                    <div class="bg-white draggable droppable border border-dark m-3 p-2 ui-draggable ui-draggable-handle ui-droppable"
+                                        style="position: relative; opacity: 1; z-index: auto; left: 0px; top: 0px;">
+                                        <input class="draggable-title d-block mb-3" disabled="" type="text"
+                                            value="title">
+                                        <input class="draggable-url d-block mb-3" disabled="" type="url" value="url">
+                                        <button class="btn btn-danger btn-remove">remove</button>
+                                        <button class="btn btn-warning btn-edit">edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white draggable droppable border border-dark m-3 p-2 ui-draggable ui-draggable-handle ui-droppable first-level"
+                                style="position: relative; opacity: 1; z-index: auto; left: 0px; top: 0px;">
+                                <input class="draggable-title d-block mb-3" disabled="" type="text" value="title">
+                                <input class="draggable-url d-block mb-3" disabled="" type="url" value="url">
+                                <button class="btn btn-danger btn-remove">remove</button>
+                                <button class="btn btn-warning btn-edit">edit</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row navbar-container">
+            <div class="col-12">
+                <div class="border p-2 mb-3">
+                    <button id="btn-gen-nav" class="btn btn-warning ">Generate nav</button>
+                </div>
+            </div>
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light px-2">
+                    <a class="navbar-brand" href="#">Navbar</a>
+
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                      <ul class="navbar-nav">
+
+                        <li data-template="nav-item" class="nav-item ">
+                          <a class="nav-link" aria-current="page" href="#">Home</a>
+                        </li>
+
+                        <ul data-template="dropdown-menu" class="dropdown-menu">
+                        </ul>
+
+                        <li data-template="dropdown-item">
+                            <a class="dropdown-item" href="#">Action</a>
+                        </li>
+
+                        <li data-template="nav-item-dropdown" class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" >
+                              Dropdown link
+                            </a>
+                            
+                            
+                        </li>
+
+                          <li data-template="submenu" class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" >
+                              Dropdown link
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li>
+                                  <a class="dropdown-item" href="#">Action</a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item" href="#">Action 2 &raquo;</a>
+                                  <ul class="submenu dropdown-menu">
+                                      <li><a class="dropdown-item" href="#">Submenu item 1</a></li>
+                                      <li><a class="dropdown-item" href="#">Submenu item 2</a></li>
+                                      <li><a class="dropdown-item" href="#">Submenu item 3 &raquo; </a>
+                                          <ul class="submenu dropdown-menu">
+                                              <li><a class="dropdown-item" href="#">Multi level 1</a></li>
+                                              <li><a class="dropdown-item" href="#">Multi level 2</a></li>
+                                          </ul>
+                                      </li>
+                                  </ul>
+                              </li>
+                            </ul>
+                          </li>
+
+                      </ul>
+                    </div>
+                  
+                </nav>
+
+                <div class="test"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
