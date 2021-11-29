@@ -1,8 +1,6 @@
 @import './node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-body {
-    height: 200vh;
-}
+
 [class*=items-container] {
     min-height: 50px;
 }
@@ -19,24 +17,53 @@ body {
     }
 }
 
+.navbar-container {
+    min-height: 100vh;
+    .dropdown-menu {
+        li { 
+            position: relative; 	
+        }
+    
+        &>li:hover {
+            background-color: #f1f1f1;
+    
+            &>.submenu{
+                display: block;
+    
+            }
+        }
 
-.dropdown-menu li{ position: relative; 	}
-.nav-item .submenu{ 
-    display: none;
-    position: absolute;
-    left:100%; top:-7px;
+        li.arrow::after {
+            content: "\00BB";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            font-size: 20px;
+            padding-bottom: 4px;
+        }
+    
+    }
+    
+    .nav-item {
+        .submenu { 
+            display: none;
+            position: absolute;
+            left:100%;
+            top:-7px;
+        }
+    }
 }
-.dropdown-menu > li:hover{ background-color: #f1f1f1 }
-.dropdown-menu > li:hover > .submenu{ display: block; }
 
-.dropdown {
-    background-color: salmon !important;
-}
+   
 
-.drop-item {
-    background-color: yellowgreen !important;
-}
 
-.submenu {
-    background-color: turquoise !important;
-}
+
+// .dropdown-menu > li:hover { 
+//     background-color: #f1f1f1
+//  }
+ 
+// .dropdown-menu > li:hover > .submenu { 
+//     display: block; 
+// }
+
